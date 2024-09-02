@@ -1,6 +1,6 @@
 var typed = new Typed(".auto-typed", {
 
-    strings: ["Ephraim Justin Paul D. De Lara", "21 Years Old", "Male"],
+    strings: ["Ephraim De Lara", "21 Years Old", "Male"],
     typeSpeed : 60,
     backSpeed : 60,
     loop: true
