@@ -20,10 +20,10 @@
         </a>
 
         <ul class = "menus">
-        <a href = "#home"> <button class = "nav-menus"> Home </button> </a>
-        <a href = "#about"> <button class = "nav-menus"> About </button> </a>
-        <a href = "#artifacts"> <button class = "nav-menus"> Artifacts </button> </a>
-        <a href = "#peers"> <button class = "nav-menus"> Peers </button> </a>
+            <a href = "#home"> <button class = "nav-menus"> Home </button> </a>
+            <a href = "#about"> <button class = "nav-menus"> About </button> </a>
+            <a href = "#artifacts"> <button class = "nav-menus"> Artifacts </button> </a>
+            <a href = "#peers"> <button class = "nav-menus"> Peers </button> </a>
         </ul>
 
         <i class='bx bx-menu-alt-right' id = "menu-icon"></i>
@@ -31,8 +31,9 @@
     </nav>
 
     <section id = "home">
-        <a href = "assets/profiles/2x2(EJ).jpg" target = "_blank">
-        <img src = "assets/profiles/2x2(EJ).jpg" alt = "Ephraim De Lara">
+
+        <a href = "assets/profiles/2x2(EJ).jpg" target = "_blank" rel = "noopener">
+            <img src = "assets/profiles/2x2(EJ).jpg" alt = "Ephraim De Lara">
         </a>
         
         <div class = "info-box">
@@ -43,9 +44,122 @@
         </div>
 
         <div class = "btn-box">
-            <div class = "btn">Edit</div>
-            <div class = "btn">Upload</div>
+            <div class = "btn">
+                <a href = "#edit" class = "edit-btn" onclick = showEditDialog(true)> Edit </a>
+            </div>
+            <div class = "btn">
+                <a href = "#upload" onclick = showUploadDialog(true)> Upload </a>
+            </div>
         </div>
+
+        <dialog id = "Edit-dialog">
+
+            <div class = "edit_wrapper">
+
+                <div class="form-container-edit">
+                    <h2>Update Information</h2>
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="form-group-edit">
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="gradeSection">Grade and Section:</label>
+                            <input type="text" id="gradeSection" name="gradeSection" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="bio">Description (Bio):</label>
+                            <textarea id="bio" name="bio" placeholder="Write a short bio..."></textarea>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="birthday">Birthday:</label>
+                            <input type="date" id="birthday" name="birthday" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <label for="profilePicture">Profile Picture:</label>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+                        </div>
+                        <div class="form-group-edit">
+                            <button type="submit">Update Information</button>
+                        </div>
+                    </form>
+                </div>
+
+        </dialog>
+
+        <dialog id = "Upload-dialog">
+
+            <div class = "upload_wrapper">
+    
+                <div class="form-container">
+
+                    <h2>Upload Document</h2>
+
+                    <form action="#" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder = "(e.g. Seatwork#1-English)" required />
+
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">--Select Subject--</option>
+                                <option value="english">English</option>
+                                <option value="filipino">Filipino</option>
+                                <option value="math">Math</option>
+                                <option value="science">Science</option>
+                                <option value="history">P.E.</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Type of Material:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">--Select Material--</option>
+                                <option value="quizzes">Quiz</option>
+                                <option value="pt">Performance Task</option>
+                                <option value="assignment">Assignment</option>
+                                <option value="seatwork">Seatwork</option>
+                                <option value="exam-papers">Examination Papers</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file">Upload File:</label>
+                            <input type="file" id="file" name="file" required/>
+                        </div>
+
+                        <div class="upload-buttons">
+                            <button type="submit">Submit</button>
+                        </div>
+                    
+                    </form>
+
+                    <div class="upload-buttons">
+                        <button type="button" onclick = showUploadDialog(false)>Cancel</button>
+                    </div>
+
+                </div>
+            
+            </div>    
+    
+        </dialog>
 
     </section>
 
@@ -91,55 +205,75 @@
 
         <div class = "artifacts-container">
 
-            <div class = "box">
+            <a href = "pages/quizzes.html">
 
-                <h1> <span> Quizzes </span> </h1>
+                <div class = "box">
 
-                <p> A quiz refers to a short test of knowledge, typically around 10 questions in length, with question formats often including multiple choice, fill in the blanks, true or false and short answer. </p>
+                    <h1> <span> Quizzes </span> </h1>
 
-                <img src = "assets/images/pexels-annpoan-5797900.jpg" alt = "Quiz">
+                    <p> A quiz refers to a short test of knowledge, typically around 10 questions in length, with question formats often including multiple choice, fill in the blanks, true or false and short answer. </p>
 
-            </div>
+                    <img src = "assets/images/pexels-annpoan-5797900.jpg" alt = "Quiz">
 
-            <div class = "box">
+                </div>
 
-                <h1> <span> Performance Tasks </span> </h1>
+            </a>
 
-                <p> Include skills demonstration, group presentations, oral work, multimedia presentations, and research projects. </p>
+            <a href = "pages/performances.html">
 
-                <img src = "assets/images/pexels-gabby-k-6238039.jpg" alt = "PT">
+                <div class = "box">
 
-            </div>
+                    <h1> <span> Performance Tasks </span> </h1>
 
-            <div class = "box">
+                    <p> Include skills demonstration, group presentations, oral work, multimedia presentations, and research projects. </p>
 
-                <h1> <span> Assignments </span> </h1>
+                    <img src = "assets/images/pexels-gabby-k-6238039.jpg" alt = "PT">
 
-                <p> It is used to keep track of the progress of the students in achieving the learning standards and in the development of 21st century skills, to promote self-reflection and personal accountability among students, and provide basis for the profiling of student performance. </p>
+                </div>
 
-                <img src = "assets/images/pexels-kate-graur-3626318-5425686.jpg" alt = "Assignments">
+            </a>
 
-            </div>
+            <a href = "pages/assignments.html">
 
-            <div class = "box">
+                <div class = "box">
 
-                <h1> <span> Seatworks </span> </h1>
+                    <h1> <span> Assignments </span> </h1>
 
-                <p> Typically short and can include exercises, worksheets, or small projects aimed at reinforcing the lesson taught or assessing students' understanding of the material. </p>
+                    <p> It is used to keep track of the progress of the students in achieving the learning standards and in the development of 21st century skills, to promote self-reflection and personal accountability among students, and provide basis for the profiling of student performance. </p>
 
-                <img src = "assets/images/pexels-pixabay-159751.jpg" alt = "Seatworks">
+                    <img src = "assets/images/pexels-kate-graur-3626318-5425686.jpg" alt = "Assignments">
 
-            </div>
+                </div>
 
-            <div class = "box">
+            </a>
 
-                <h1> <span> Examination Papers </span> </h1>
+            <a href = "pages/seatworks.html">
 
-                <p> Formal assessments used to evaluate students' understanding and mastery of the curriculum. </p>
+                <div class = "box">
 
-                <img src = "assets/images/pexels-andy-barbour-6683394.jpg" alt = "Seatworks">
+                    <h1> <span> Seatworks </span> </h1>
 
-            </div>
+                    <p> Typically short and can include exercises, worksheets, or small projects aimed at reinforcing the lesson taught or assessing students' understanding of the material. </p>
+
+                    <img src = "assets/images/pexels-pixabay-159751.jpg" alt = "Seatworks">
+
+                </div>
+
+            </a>
+
+            <a href = "pages/exams.html">
+
+                <div class = "box">
+
+                    <h1> <span> Examination Papers </span> </h1>
+
+                    <p> Formal assessments used to evaluate students' understanding and mastery of the curriculum. </p>
+
+                    <img src = "assets/images/pexels-andy-barbour-6683394.jpg" alt = "Seatworks">
+
+                </div>
+
+            </a>
 
         </div>
 

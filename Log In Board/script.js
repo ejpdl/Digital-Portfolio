@@ -8,3 +8,10 @@ const typed = new Typed(typedElement, {
     loop: true
 
 });
+
+const dialog = document.querySelector("#LogIn-dialog");
+const wrapper = document.querySelector(".wrapper");
+
+const showLogInDialog = (show) => show ? dialog.showModal() : dialog.close();
+
+dialog.addEventListener('click', (e) => !wrapper.contains(e.target) && dialog.close());

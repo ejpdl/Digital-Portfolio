@@ -30,17 +30,47 @@
             </p>
 
             <div id="loginbtn">
-                <a href="#" class="btn">Log In</a>
+              
+                <a href="#" class="btn" onclick = showLogInDialog(true)>Log In</a>
+
             </div>
 
         </div>
 
     </section>
 
-    <section id = "Modal">
+    <dialog id = "LogIn-dialog">
 
+        <div class = "wrapper">
 
-    </section>
+          <form class="form" action = "/users/login" method = "POST">
+
+            <span class="input-span">
+              <label for="id" class="label"> ID Number (A** - ****) </label>
+              <input type="text" name="id" id="id" required/> </span>
+
+            <span class="input-span">
+              <label for="password" class="label">Password</label>
+              <input type="password" name="password" id="password" required/> </span>
+
+              <span class="sub-text">Your initial password is your birthdate in this format YYYY-MM-DD.</span>  
+        
+
+            <span class="span"><a href="#">Forgot password?</a></span>
+
+            <input class="submit" type="submit" value="Log in" />
+
+          </form>     
+
+        </div>    
+
+    </dialog>
+
+    
+
+  
+  
+
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src = "script.js"></script>

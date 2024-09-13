@@ -21,7 +21,9 @@
 body {
 
     min-height: 100vh;
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background-image: url("assets/images/Untitled design (1).jpg");
+    background-size: cover;
 
 }
 
@@ -34,7 +36,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(15, 15, 15, 0.8);
+    /* background-color: rgba(15, 15, 15, 0.8); */
+    box-shadow: 0 5px 20px rgba(27, 27, 27, .5);   
     backdrop-filter: blur(10px);
     z-index: 1000;
 
@@ -52,8 +55,9 @@ nav {
     text-transform: uppercase;
     font-size: 1.5em;
     color: white;
+    backdrop-filter: blur(10px);
     font-weight: 800;
-    opacity: 0.8;
+    opacity: 10;
     transition: 0.2s ease-in-out;
 
 }
@@ -79,14 +83,15 @@ span {
     text-align: left;
     display: flex;
     flex-direction: column;
+    align-items: left;
     justify-content: center;
-    padding: 40px;
+    padding: 70px;
 
 }
 
 .container h1 {
 
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 800;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -96,7 +101,7 @@ span {
 
 .container p {
 
-    font-size: 1.5em;
+    font-size: 1em;
     letter-spacing: 3px;
     margin-top: 0;
     margin-bottom: 30px;
@@ -173,3 +178,111 @@ span {
     opacity: 0;
     
 }
+
+dialog::backdrop {
+
+  backdrop-filter: blur(2px);
+
+}
+
+.wrapper {
+
+    padding: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--background);
+
+}
+
+.form {
+  --bg-light: #efefef;
+  --bg-dark: #707070;
+  --clr: #58bc82;
+  --clr-alpha: #9c9c9c60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--clr-alpha);
+  outline: 2px solid var(--bg-dark);
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus {
+  outline: 2px solid var(--clr);
+}
+
+.label {
+  align-self: flex-start;
+  color: var(--clr);
+  font-weight: 600;
+}
+
+.form .submit {
+  padding: 1rem 0.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: var(--bg-dark);
+  color: var(--bg-light);
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form .submit:hover {
+  background-color: var(--clr);
+  color: var(--bg-dark);
+}
+
+.span {
+  text-decoration: none;
+  color: var(--bg-dark);
+}
+
+.sub-text{
+
+  background-clip: text;
+  color: #80AF81;
+  text-align: center;
+
+}
+
+.span a {
+  color: var(--clr);
+}
+
+  
+      

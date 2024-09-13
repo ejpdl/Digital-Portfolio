@@ -36,7 +36,8 @@ nav {
 ul {
   display: flex;
   align-items: center;
-  gap: 3em;
+  justify-content: space-around;
+  margin: 0px 50px;
 }
 
 nav ul a {
@@ -95,8 +96,8 @@ nav ul a:hover {
 }
 
 .logo-text {
-  margin-left: -200px;
-  font-size: 1.5em;
+  display: flex;
+  font-size: 2em;
   color: white;
   font-weight: 800;
   opacity: 0.8;
@@ -186,22 +187,6 @@ section {
   border: 2px solid white;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-}
-
-.btn a{
-
-  color: black;
-  text-decoration: none;
-  list-style: none;
-
-}
-
-.btn .edit-btn{
-
-  color: white;
-  text-decoration: none;
-  list-style: none;
-
 }
 
 .btn:hover {
@@ -569,159 +554,8 @@ footer {
 
 }
 
-.upload_wrapper {
 
-  padding: 0px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: var(--background);
 
-}
-
-dialog::backdrop {
-
-  backdrop-filter: blur(2px);
-
-}
-
-.form-container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 700px;
-}
-.form-container h2 {
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-.form-group {
-  margin-bottom: 15px;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
-}
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-.form-group input[type="file"] {
-  padding: 3px;
-}
-
- .upload-buttons {
-
-  display: flex;
-  justify-content: space-around;
-  gap: 2em;
-  align-items: center;
-  
-}
-
-.upload-buttons button {
-
-  width: 50%;
-  padding: 10px;
-  background-color: #5cb85c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 4px;
-
-}
-.upload-buttons button:hover {
-  background-color: #4cae4c;
-}
-
-/* Edit */
-.edit_wrapper {
-
-  display: flex;
-  padding: 0px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: var(--background);
-  overflow-y: auto;
-
-}
-
-dialog::backdrop {
-
-  backdrop-filter: blur(2px);
-
-}
-
-.form-container-edit {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 700px;
-  height: 600px;
-  overflow-y: auto;
-}
-.form-container-edit h2 {
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-.form-group-edit {
-  margin-bottom: 15px;
-}
-.form-group-edit label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
-}
-.form-group-edit input, 
-.form-group-edit textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-.form-group-edit input[type="file"] {
-  padding: 3px;
-}
-.form-group-edit textarea {
-  resize: vertical;
-  height: 80px;
-}
-.form-group-edit button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-.form-group-edit button:hover {
-  background-color: #0056b3;
-}
 
 /* From Uiverse.io by vinodjangid07
 .Btn {
