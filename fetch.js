@@ -2,7 +2,7 @@
 loadStudentData('A21-0398');
 function loadStudentData(Student_ID){
 
-    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
+    fetch(`https://api-08m2.onrender.com/student_user/view/${Student_ID}`)
     .then(response => response.json())
     .then(data => {
 
@@ -50,7 +50,7 @@ function loadStudentData(Student_ID){
 // <=========================== TO UPDATE THE INFORMATION OF THE USER ===========================>
 function updateMember(Student_ID){
 
-    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
+    fetch(`https://api-08m2.onrender.com/student_user/view/${Student_ID}`)
     .then(response => response.json())
     .then(data => {
 
@@ -99,7 +99,7 @@ function updateMember(Student_ID){
                       
             const formData = { fname, mname, lname, grade_section, about, age, bday, phone, email, student_id: Student_ID };
 
-            fetch("http://localhost:5000/student_user/update", {
+            fetch("https://api-08m2.onrender.com/student_user/update", {
 
                 method: "PUT",
                 body: JSON.stringify(formData),
