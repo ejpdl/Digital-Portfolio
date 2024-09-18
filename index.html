@@ -39,17 +39,20 @@
         <div class = "info-box">
             <h1> Hello, I'm </h1>
             <span class = "auto-typed"> </span>
-            <h3> <span> Grade 7 - Lirio </span> </h3>
+            <h3> <span id = "gradesection"> </span> </h3>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. A vel sapiente porro nihil dolorem? Nobis beatae tempore nesciunt possimus cumque. </p>
         </div>
 
         <div class = "btn-box">
-            <div class = "btn" onclick = showEditDialog(true)>
-                <a href = "#edit" class = "edit-btn" > Edit </a>
+
+            <div class = "btn" onclick = "updateMember('A21-0398')">
+                <a href = "#edit" class = "edit-btn"> Edit </a>
             </div>
+
             <div class = "btn" onclick = showUploadDialog(true)>
                 <a href = "#upload" > Upload </a>
             </div>
+
         </div>
 
         <dialog id = "Edit-dialog">
@@ -57,44 +60,57 @@
             <div class = "edit_wrapper">
 
                 <div class="form-container-edit">
+
                     <h2>Update Information</h2>
-                    <form action="#" method="post" enctype="multipart/form-data">
+
+                    <form id = "updateForm">
+
                         <div class="form-group-edit">
                             <label for="fullName">Full Name:</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" id="fullName" name="fullName" placeholder = "Enter your full name here" required />
                         </div>
+
                         <div class="form-group-edit">
                             <label for="gradeSection">Grade and Section:</label>
-                            <input type="text" id="gradeSection" name="gradeSection" required>
+                            <input type="text" id="gradeSection" name="gradeSection" placeholder = "(e.g. 7-Lirio)" required />
                         </div>
+
                         <div class="form-group-edit">
                             <label for="bio">Description (Bio):</label>
-                            <textarea id="bio" name="bio" placeholder="Write a short bio..."></textarea>
+                            <textarea id="bio" name="bio" placeholder="Tell us something about yourself..."></textarea>
                         </div>
+
                         <div class="form-group-edit">
                             <label for="age">Age:</label>
-                            <input type="number" id="age" name="age" required>
+                            <input type="number" id="age" name="age" required />
                         </div>
+
                         <div class="form-group-edit">
-                            <label for="birthday">Birthday:</label>
-                            <input type="date" id="birthday" name="birthday" required>
+                            <label for="bday">Birthday:</label>
+                            <input type="date" id="bday" name="bday" required />
                         </div>
+
                         <div class="form-group-edit">
                             <label for="phone">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="(e.g. phone number or tel number)" required />
                         </div>
+
                         <div class="form-group-edit">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder = "Enter your email here" required />
                         </div>
+
                         <div class="form-group-edit">
                             <label for="profilePicture">Profile Picture:</label>
                             <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
                         </div>
+
                         <div class="form-group-edit">
-                            <button type="submit">Update Information</button>
+                            <button type="button" id = "updateButton">Update Information</button>
                         </div>
+
                     </form>
+
                 </div>
 
         </dialog>
@@ -179,16 +195,16 @@
 
                 <ul>
                     <li>
-                        <span> <i class = 'bx bx-chevron-right-circle'></i> 21 Years Old </span>
+                        <span> </span>
                     </li>
                     <li>
-                        <span> <i class = 'bx bx-chevron-right-circle'></i> April 23, 2003 </span>
+                        <span>  </span>
                     </li>
                     <li>
-                        <span> <i class = 'bx bx-chevron-right-circle'></i> 09381689796 </span>
+                        <span>  </span>
                     </li>
                     <li>
-                        <span> <i class = 'bx bx-chevron-right-circle'></i> delaraephraim171@gmail.com </span>
+                        <span> </span>
                     </li>
                 </ul>
 
@@ -237,6 +253,7 @@
 
                 <div class = "box">
 
+                    <br></br>
                     <h1> <span> Assignments </span> </h1>
 
                     <p> It is used to keep track of the progress of the students in achieving the learning standards and in the development of 21st century skills, to promote self-reflection and personal accountability among students, and provide basis for the profiling of student performance. </p>
@@ -322,6 +339,7 @@
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src = "script.js"></script>
+    <script src = "fetch.js"></script>
 
 </body>
 </html>

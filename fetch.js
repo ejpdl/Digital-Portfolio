@@ -1,0 +1,109 @@
+loadStudentData('A21-0398');
+function loadStudentData(Student_ID){
+
+    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
+    .then(response => response.json())
+    .then(data => {
+
+        if(data){
+
+           // To View the grade and section from the //? HOME PAGE ?// 
+           document.querySelector("#gradesection").textContent = data.Grade_Section;
+
+           // to View the Demographics in the //? ABOUT PAGE ?//     
+           const demographicsSpans = document.querySelectorAll(".demographics span");
+           demographicsSpans[0].textContent = `${data.Age} Years Old`;
+           demographicsSpans[1].textContent = new Date(data.Birthday).toLocaleDateString();
+           demographicsSpans[2].textContent = data.Phone_Number;
+           demographicsSpans[3].textContent = data.Email;
+
+        }else{
+
+            console.log("No data huhu");
+
+        }
+
+    })
+
+    .catch(error => console.log(`Error fetching: ${error}`));
+
+}
+
+// <=========================== TO UPDATE THE INFORMATION OF THE USER ===========================>
+function updateMember(Student_ID){
+
+    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
+    .then(response => response.json())
+    .then(data => {
+
+        if(data){
+
+            document.querySelector("#fullName").value = `${data.First_Name} ${data.Middle_Name} ${data.Last_Name}`;
+
+            document.querySelector("#gradeSection").value = data.Grade_Section;
+            document.querySelector("#age").value = data.Age;
+
+            const formattedDate = new Date(data.Birthday).toISOString().split('T')[0];
+            document.querySelector("#bday").value = formattedDate;
+
+            document.querySelector("#phone").value = data.Phone_Number;
+            document.querySelector("#email").value = data.Email;
+
+            showEditDialog(true);
+
+        }else{
+
+            console.log("No data na naman huhu");
+
+        }
+
+
+    })
+
+    .catch(error => console.log(`Error fetching: ${error}`));
+
+    const updateButton = document.querySelector("#updateButton");
+
+    if(updateButton){
+
+        updateButton.addEventListener("click", () => {
+
+            const fullName = document.querySelector("#fullName").value;
+            const grade_section = document.querySelector("#gradeSection").value;
+            const age = document.querySelector("#age").value;
+            const bday = document.querySelector("#bday").value;
+            const phone = document.querySelector("#phone").value;
+            const email = document.querySelector("#email").value;
+
+            const [fname = "", mname = "", lname = ""] = fullName.split(" ");
+
+            const formData = { fname, mname, lname, grade_section, age, bday, phone, email, student_id: Student_ID };
+
+            fetch("http://localhost:5000/student_user/update", {
+
+                method: "PUT",
+                body: JSON.stringify(formData),
+                headers: {
+
+                    "Content-Type" : "application/json",
+
+                },
+
+            })
+
+            .then(response => response.json())
+            .then(() => {
+
+                alert("Successfully Updated!");
+                showEditDialog(false);
+                location.reload();
+
+            })
+ 
+            .catch(error => console.log(error));
+
+        });
+
+    }
+
+}
