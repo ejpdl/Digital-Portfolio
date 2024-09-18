@@ -1,3 +1,4 @@
+// To view student_user from HOME PAGE and ABOUT PAGE
 loadStudentData('A21-0398');
 function loadStudentData(Student_ID){
 
@@ -7,15 +8,32 @@ function loadStudentData(Student_ID){
 
         if(data){
 
-           // To View the grade and section from the //? HOME PAGE ?// 
-           document.querySelector("#gradesection").textContent = data.Grade_Section;
+            // For typed.js
+            const fullName = `${data.First_Name} ${data.Last_Name}`;
+            const age = `${data.Age} Years Old`;
+            const gender = `Male`;
 
-           // to View the Demographics in the //? ABOUT PAGE ?//     
-           const demographicsSpans = document.querySelectorAll(".demographics span");
-           demographicsSpans[0].textContent = `${data.Age} Years Old`;
-           demographicsSpans[1].textContent = new Date(data.Birthday).toLocaleDateString();
-           demographicsSpans[2].textContent = data.Phone_Number;
-           demographicsSpans[3].textContent = data.Email;
+            var typed = new Typed(".auto-typed", {
+
+                strings: [fullName, age, gender],
+                typeSpeed: 60,
+                backSpeed: 60,
+                loop: true
+
+            });
+
+            // To view the grade and section from the HOME PAGE
+            document.querySelector("#gradesection").textContent = data.Grade_Section;
+
+            // To view the About me in the ABOUT PAGE
+            document.querySelector("#aboutme").textContent = data.About_Me;
+
+            // To view the demographics from the ABOUT PAGE
+            const demographicsSpans = document.querySelectorAll(".demographics span");
+            demographicsSpans[0].textContent = `${data.Age} Years Old`;
+            demographicsSpans[1].textContent = new Date(data.Birthday).toLocaleDateString();
+            demographicsSpans[2].textContent = data.Phone_Number;
+            demographicsSpans[3].textContent = data.Email;
 
         }else{
 
@@ -38,9 +56,11 @@ function updateMember(Student_ID){
 
         if(data){
 
-            document.querySelector("#fullName").value = `${data.First_Name} ${data.Middle_Name} ${data.Last_Name}`;
-
+            document.querySelector("#fname").value = data.First_Name;
+            document.querySelector("#mname").value = data.Middle_Name;
+            document.querySelector("#lname").value = data.Last_Name;
             document.querySelector("#gradeSection").value = data.Grade_Section;
+            document.querySelector("#bio").value = data.About_Me;
             document.querySelector("#age").value = data.Age;
 
             const formattedDate = new Date(data.Birthday).toISOString().split('T')[0];
@@ -57,7 +77,6 @@ function updateMember(Student_ID){
 
         }
 
-
     })
 
     .catch(error => console.log(`Error fetching: ${error}`));
@@ -68,16 +87,17 @@ function updateMember(Student_ID){
 
         updateButton.addEventListener("click", () => {
 
-            const fullName = document.querySelector("#fullName").value;
+            const fname = document.querySelector("#fname").value;
+            const mname = document.querySelector("#mname").value;
+            const lname = document.querySelector("#lname").value;
             const grade_section = document.querySelector("#gradeSection").value;
+            const about = document.querySelector("#bio").value;
             const age = document.querySelector("#age").value;
             const bday = document.querySelector("#bday").value;
             const phone = document.querySelector("#phone").value;
             const email = document.querySelector("#email").value;
-
-            const [fname = "", mname = "", lname = ""] = fullName.split(" ");
-
-            const formData = { fname, mname, lname, grade_section, age, bday, phone, email, student_id: Student_ID };
+                      
+            const formData = { fname, mname, lname, grade_section, about, age, bday, phone, email, student_id: Student_ID };
 
             fetch("http://localhost:5000/student_user/update", {
 
