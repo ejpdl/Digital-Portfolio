@@ -99,7 +99,7 @@ function updateMember(Student_ID){
                       
             const formData = { fname, mname, lname, grade_section, about, age, bday, phone, email, student_id: Student_ID };
 
-            fetch("https://api-08m2.onrender.com/student_user/update", {
+            fetch(`https://api-08m2.onrender.com/student_user/update`, {
 
                 method: "PUT",
                 body: JSON.stringify(formData),
