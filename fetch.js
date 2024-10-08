@@ -2,7 +2,13 @@
 loadStudentData('A21-0398');
 async function loadStudentData(Student_ID){
 
+<<<<<<< HEAD
     try{
+=======
+    fetch(`https://api-08m2.onrender.com/student_user/view/${Student_ID}`)
+    .then(response => response.json())
+    .then(data => {
+>>>>>>> 204b951e37a4c9295a3214046ba091550418b877
 
         const response = await fetch(`http://localhost:5000/student_user/view/${Student_ID}`);
         const data = await response.json();
@@ -50,6 +56,7 @@ async function loadStudentData(Student_ID){
 }
 
 
+<<<<<<< HEAD
 // <=========================== TO UPDATE THE INFORMATION OF THE USER ===========================>
 async function updateMember(Student_ID){
 
@@ -57,6 +64,11 @@ async function updateMember(Student_ID){
 
         const response = await fetch(`http://localhost:5000/student_user/view/${Student_ID}`);
         const data = await response.json();
+=======
+    fetch(`https://api-08m2.onrender.com/student_user/view/${Student_ID}`)
+    .then(response => response.json())
+    .then(data => {
+>>>>>>> 204b951e37a4c9295a3214046ba091550418b877
 
         if(data){
 
@@ -83,6 +95,7 @@ async function updateMember(Student_ID){
 
     } catch(error){
 
+<<<<<<< HEAD
         console.log(`Error fetching: ${error}`);
 
     }
@@ -140,3 +153,53 @@ async function updateMember(Student_ID){
     }
 
 }
+=======
+    .catch(error => console.log(`Error fetching: ${error}`));
+
+    const updateButton = document.querySelector("#updateButton");
+
+    if(updateButton){
+
+        updateButton.addEventListener("click", () => {
+
+            const fname = document.querySelector("#fname").value;
+            const mname = document.querySelector("#mname").value;
+            const lname = document.querySelector("#lname").value;
+            const grade_section = document.querySelector("#gradeSection").value;
+            const about = document.querySelector("#bio").value;
+            const age = document.querySelector("#age").value;
+            const bday = document.querySelector("#bday").value;
+            const phone = document.querySelector("#phone").value;
+            const email = document.querySelector("#email").value;
+                      
+            const formData = { fname, mname, lname, grade_section, about, age, bday, phone, email, student_id: Student_ID };
+
+            fetch(`https://api-08m2.onrender.com/student_user/update`, {
+
+                method: "PUT",
+                body: JSON.stringify(formData),
+                headers: {
+
+                    "Content-Type" : "application/json",
+
+                },
+
+            })
+
+            .then(response => response.json())
+            .then(() => {
+
+                alert("Successfully Updated!");
+                showEditDialog(false);
+                location.reload();
+
+            })
+ 
+            .catch(error => console.log(error));
+
+        });
+
+    }
+
+}
+>>>>>>> 204b951e37a4c9295a3214046ba091550418b877
