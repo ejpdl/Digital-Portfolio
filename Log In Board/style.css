@@ -200,7 +200,7 @@ dialog::backdrop {
 
 }
 
-.form {
+form {
   --bg-light: #efefef;
   --bg-dark: #707070;
   --clr: #58bc82;
@@ -215,15 +215,16 @@ dialog::backdrop {
   max-width: 300px;
 }
 
-.form .input-span {
+form .input-span {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.form input[type="text"],
-.form input[type="password"] {
+form input[type="text"],
+form input[type="password"] {
+  color: white;
   border-radius: 0.5rem;
   padding: 1rem 0.75rem;
   width: 100%;
@@ -235,8 +236,8 @@ dialog::backdrop {
   outline: 2px solid var(--bg-dark);
 }
 
-.form input[type="text"]:focus,
-.form input[type="password"]:focus {
+form input[type="text"]:focus,
+form input[type="password"]:focus {
   outline: 2px solid var(--clr);
 }
 
@@ -246,7 +247,8 @@ dialog::backdrop {
   font-weight: 600;
 }
 
-.form .submit {
+form .submit {
+
   padding: 1rem 0.75rem;
   width: 100%;
   display: flex;
@@ -262,7 +264,7 @@ dialog::backdrop {
   font-size: 0.9rem;
 }
 
-.form .submit:hover {
+form .submit:hover {
   background-color: var(--clr);
   color: var(--bg-dark);
 }
@@ -281,7 +283,9 @@ dialog::backdrop {
 }
 
 .span a {
+
   color: var(--clr);
+
 }
 
   

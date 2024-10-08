@@ -1,58 +1,62 @@
 // To view student_user from HOME PAGE and ABOUT PAGE
 loadStudentData('A21-0398');
-function loadStudentData(Student_ID){
+async function loadStudentData(Student_ID){
 
-    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
-    .then(response => response.json())
-    .then(data => {
+    try{
 
-        if(data){
+        const response = await fetch(`http://localhost:5000/student_user/view/${Student_ID}`);
+        const data = await response.json();
 
-            // For typed.js
-            const fullName = `${data.First_Name} ${data.Last_Name}`;
-            const age = `${data.Age} Years Old`;
-            const gender = `Male`;
+        if(!data) {
 
-            var typed = new Typed(".auto-typed", {
-
-                strings: [fullName, age, gender],
-                typeSpeed: 60,
-                backSpeed: 60,
-                loop: true
-
-            });
-
-            // To view the grade and section from the HOME PAGE
-            document.querySelector("#gradesection").textContent = data.Grade_Section;
-
-            // To view the About me in the ABOUT PAGE
-            document.querySelector("#aboutme").textContent = data.About_Me;
-
-            // To view the demographics from the ABOUT PAGE
-            const demographicsSpans = document.querySelectorAll(".demographics span");
-            demographicsSpans[0].textContent = `${data.Age} Years Old`;
-            demographicsSpans[1].textContent = new Date(data.Birthday).toLocaleDateString();
-            demographicsSpans[2].textContent = data.Phone_Number;
-            demographicsSpans[3].textContent = data.Email;
-
-        }else{
-
-            console.log("No data huhu");
+            throw new Error("No data found");
 
         }
 
-    })
+        const fullName = `${data.First_Name} ${data.Last_Name}`;
+        const age = `${data.Age} Years Old`;
+        const gender = `Male`;
 
-    .catch(error => console.log(`Error fetching: ${error}`));
+        var typed = new Typed(".auto-typed", {
+                    
+            strings: [fullName, age, gender],
+            typeSpeed: 60,
+            backSpeed: 60,
+            loop: true
+            
+        });
 
+        // To view the grade and section from the HOME PAGE
+        document.querySelector("#gradesection").textContent = data.Grade_Section;
+
+        // To view the About me in the ABOUT PAGE
+        document.querySelector("#aboutme").textContent = data.About_Me;
+
+        // To view the demographics from the ABOUT PAGE
+        const demographicsSpans = document.querySelectorAll(".demographics span");
+        demographicsSpans[0].textContent = `${data.Age} Years Old`;
+        demographicsSpans[1].textContent = new Date(data.Birthday).toLocaleDateString();
+        demographicsSpans[2].textContent = data.Phone_Number;
+        demographicsSpans[3].textContent = data.Email;
+
+
+    }catch(error){
+
+        console.error(`Error fetching: ${error}`);
+        alert("An error occurred while loading student data.");
+
+    }
+        
 }
 
-// <=========================== TO UPDATE THE INFORMATION OF THE USER ===========================>
-function updateMember(Student_ID){
 
-    fetch(`http://localhost:5000/student_user/view/${Student_ID}`)
-    .then(response => response.json())
-    .then(data => {
+// <=========================== TO UPDATE THE INFORMATION OF THE USER ===========================>
+async function updateMember(Student_ID){
+
+    try{
+
+        const response = await fetch(`http://localhost:5000/student_user/view/${Student_ID}`);
+        const data = await response.json();
 
         if(data){
 
@@ -77,53 +81,62 @@ function updateMember(Student_ID){
 
         }
 
-    })
+    } catch(error){
 
-    .catch(error => console.log(`Error fetching: ${error}`));
+        console.log(`Error fetching: ${error}`);
+
+    }
 
     const updateButton = document.querySelector("#updateButton");
 
-    if(updateButton){
+    if (updateButton){
 
-        updateButton.addEventListener("click", () => {
+        updateButton.onclick = async (e) => {
 
-            const fname = document.querySelector("#fname").value;
-            const mname = document.querySelector("#mname").value;
-            const lname = document.querySelector("#lname").value;
-            const grade_section = document.querySelector("#gradeSection").value;
-            const about = document.querySelector("#bio").value;
-            const age = document.querySelector("#age").value;
-            const bday = document.querySelector("#bday").value;
-            const phone = document.querySelector("#phone").value;
-            const email = document.querySelector("#email").value;
-                      
-            const formData = { fname, mname, lname, grade_section, about, age, bday, phone, email, student_id: Student_ID };
+            e.preventDefault();
 
-            fetch("http://localhost:5000/student_user/update", {
+            const formData = new FormData();
+            formData.append('fname', document.querySelector("#fname").value);
+            formData.append('mname', document.querySelector("#mname").value);
+            formData.append('lname', document.querySelector("#lname").value);
+            formData.append('grade_section', document.querySelector("#gradeSection").value);
+            formData.append('about', document.querySelector("#bio").value);
+            formData.append('age', document.querySelector("#age").value);
+            formData.append('bday', document.querySelector("#bday").value);
+            formData.append('phone', document.querySelector("#phone").value);
+            formData.append('email', document.querySelector("#email").value);
+            formData.append('student_id', Student_ID);
+            formData.append('image', document.querySelector("#profilePicture").files[0]);
 
-                method: "PUT",
-                body: JSON.stringify(formData),
-                headers: {
+            try {
 
-                    "Content-Type" : "application/json",
+                const updateResponse = await fetch("http://localhost:5000/student_user/update",{
 
-                },
+                    method: "PUT",
+                    body: formData
 
-            })
+                });
 
-            .then(response => response.json())
-            .then(() => {
+                const result = await updateResponse.json();
 
-                alert("Successfully Updated!");
-                showEditDialog(false);
-                location.reload();
+                if (updateResponse.ok){
 
-            })
- 
-            .catch(error => console.log(error));
+                    alert("Successfully Updated!");
+                    showEditDialog(false);
+                    location.reload();
 
-        });
+                }else{
 
+                    console.log(result.error);
+
+                }
+
+            }catch(error){
+
+                console.log(error);
+
+            }
+        };
     }
 
 }

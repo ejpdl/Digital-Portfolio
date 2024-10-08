@@ -15,10 +15,6 @@
             <img src = "assets/logo/euC.png" alt = "logo" class = "logo-image">
         </a>
 
-        <a href = "#" class = "logo-text">
-            Manuel S. Enverga Candelaria Quezon 
-        </a>
-
         <ul class = "menus">
             <a href = "#home"> <button class = "nav-menus"> Home </button> </a>
             <a href = "#about"> <button class = "nav-menus"> About </button> </a>
@@ -26,16 +22,18 @@
             <a href = "#peers"> <button class = "nav-menus"> Peers </button> </a>
         </ul>
 
+        <a href = "Log In Board/index.html">
+            <button class = "log-out"> Log Out </button>
+        </a>
+
         <i class='bx bx-menu-alt-right' id = "menu-icon"></i>
 
     </nav>
 
     <section id = "home">
 
-        <a href = "assets/profiles/2x2(EJ).jpg" target = "_blank" rel = "noopener">
-            <img src = "assets/profiles/2x2(EJ).jpg" alt = "Ephraim De Lara">
-        </a>
-        
+        <img id = "profile" src="assets/profiles/2x2(EJ).jpg" alt="Profile Image">    
+
         <div class = "info-box">
             <h1> Hello, I'm </h1>
             <span class = "auto-typed"> </span>
@@ -63,7 +61,7 @@
 
                     <h2>Update Information</h2>
 
-                    <form id = "updateForm">
+                    <form action = "http://localhost:5000/single" method = "POST" enctype = "multipart/form-data">
 
                         <div class="form-group-edit">
                             <label for="fname">First Name:</label>
@@ -112,11 +110,12 @@
 
                         <div class="form-group-edit">
                             <label for="profilePicture">Profile Picture:</label>
-                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+                                <input type="file" id="profilePicture" name="image" accept="image" required>
                         </div>
+                        
 
                         <div class="form-group-edit">
-                            <button type="button" id = "updateButton">Update Information</button>
+                            <button type="submit" id="updateButton"> Update Information </button>
                         </div>
 
                     </form>
@@ -170,6 +169,7 @@
                             <label for="file">Upload File:</label>
                             <input type="file" id="file" name="file" required/>
                         </div>
+                        
 
                         <div class="upload-buttons">
                             <button type="submit">Submit</button>
@@ -205,16 +205,16 @@
 
                 <ul>
                     <li>
-                        <span> </span>
+                        <span> Age </span>
                     </li>
                     <li>
-                        <span>  </span>
+                        <span> Birthday </span>
                     </li>
                     <li>
-                        <span>  </span>
+                        <span> Phone Number </span>
                     </li>
                     <li>
-                        <span> </span>
+                        <span> Email </span>
                     </li>
                 </ul>
 
@@ -239,8 +239,6 @@
 
                     <p> A quiz refers to a short test of knowledge, typically around 10 questions in length, with question formats often including multiple choice, fill in the blanks, true or false and short answer. </p>
 
-                    <img src = "assets/images/pexels-annpoan-5797900.jpg" alt = "Quiz">
-
                 </div>
 
             </a>
@@ -252,8 +250,6 @@
                     <h1> <span> Performance Tasks </span> </h1>
 
                     <p> Include skills demonstration, group presentations, oral work, multimedia presentations, and research projects. </p>
-
-                    <img src = "assets/images/pexels-gabby-k-6238039.jpg" alt = "PT">
 
                 </div>
 
@@ -268,8 +264,6 @@
 
                     <p> It is used to keep track of the progress of the students in achieving the learning standards and in the development of 21st century skills, to promote self-reflection and personal accountability among students, and provide basis for the profiling of student performance. </p>
 
-                    <img src = "assets/images/pexels-kate-graur-3626318-5425686.jpg" alt = "Assignments">
-
                 </div>
 
             </a>
@@ -281,8 +275,6 @@
                     <h1> <span> Seatworks </span> </h1>
 
                     <p> Typically short and can include exercises, worksheets, or small projects aimed at reinforcing the lesson taught or assessing students' understanding of the material. </p>
-
-                    <img src = "assets/images/pexels-pixabay-159751.jpg" alt = "Seatworks">
 
                 </div>
 
@@ -296,12 +288,42 @@
 
                     <p> Formal assessments used to evaluate students' understanding and mastery of the curriculum. </p>
 
-                    <img src = "assets/images/pexels-andy-barbour-6683394.jpg" alt = "Seatworks">
-
                 </div>
 
             </a>
 
+        </div>
+
+    </section>
+
+    <section id = "peers">
+        
+        <h1 class = "header"> <span> Peers </span> </h1>
+
+        <div class="card">
+            <div class="card-border-top"></div>
+                <div class="img">
+                    <img src = "assets/profiles/2x2(EJ).jpg">
+                </div>
+                    <span> Katricia Pida </span>
+                    <p class="grade-section"> 7 - Lirio </p>
+
+                    <a href = "Classmate_Side/index.html">
+                        <button> Visit </button>
+                    </a>
+        </div>
+
+        <div class="card">
+            <div class="card-border-top"></div>
+                <div class="img">
+                    <img src = "assets/profiles/2x2(EJ).jpg">
+                </div>
+                    <span> Katricia Pida </span>
+                    <p class="grade-section"> 7 - Lirio </p>
+
+                    <a href = "Classmate_Side/index.html">
+                        <button> Visit </button>
+                    </a>
         </div>
 
     </section>
@@ -353,27 +375,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-<!-- 
-<div>
-    <button class="Btn">Edit 
-    <svg class="svg" viewBox="0 0 512 512">
-    <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg>
-    </button>
-    </div>
-
-        <div>
-        <button class="Btn">Upload 
-        <svg class="svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-
-        <path fill-rule="evenodd" d="M12 3a1 1 0 0 1 .78.375l4 5a1 1 0 1 1-1.56 1.25L13 6.85V14a1 1 0 1 1-2 0V6.85L8.78 9.626a1 1 0 1 1-1.56-1.25l4-5A1 1 0 0 1 12 3ZM9 14v-1H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4v1a3 3 0 1 1-6 0Zm8 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd"/></path></svg>
-        </button>
-        </div>
-
-    </div> -->

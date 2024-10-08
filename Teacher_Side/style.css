@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #1c1c1c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.brand h2 {
+    font-size: 1.5em;
+}
+
+.menu {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.menu li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.help, .logout {
+    padding: 10px 0;
+}
+
+.logout button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.header h1 {
+    font-size: 1.5em;
+}
+
+.search-profile {
+    display: flex;
+    align-items: center;
+}
+
+.search-profile input {
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dashboard h2 {
+    margin: 20px 0;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.class-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.class-card:nth-child(odd) {
+    background-color: black;
+    color: white;
+}
+
+.class-card span {
+    font-size: 0.9em;
+    color: gray;
+}
